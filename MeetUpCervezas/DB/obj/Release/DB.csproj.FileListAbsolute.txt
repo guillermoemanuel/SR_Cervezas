@@ -1,0 +1,11 @@
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\bin\Release\DB.dll.config
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\bin\Release\DB.dll
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\bin\Release\DB.pdb
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\bin\Release\EntityFramework.dll
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\bin\Release\EntityFramework.SqlServer.dll
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\bin\Release\EntityFramework.xml
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\bin\Release\EntityFramework.SqlServer.xml
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\obj\Release\DB.csprojAssemblyReference.cache
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\obj\Release\DB.csproj.CopyComplete
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\obj\Release\DB.dll
+C:\Otros\MeetUpCerveza\c33c30be-2ad0-4561-959b-1cf497e8ff7f\MeetUpCervezas\DB\obj\Release\DB.pdb

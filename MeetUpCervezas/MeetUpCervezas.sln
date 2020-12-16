@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{F7FBD975-31EB-4540-88D8-1EAF894CFA3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetUpCervezas", "MeetUpCervezas\MeetUpCervezas.csproj", "{EDC279CF-3F82-4A79-9FAE-D0CC231E9459}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7FBD975-31EB-4540-88D8-1EAF894CFA3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7FBD975-31EB-4540-88D8-1EAF894CFA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7FBD975-31EB-4540-88D8-1EAF894CFA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7FBD975-31EB-4540-88D8-1EAF894CFA3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC279CF-3F82-4A79-9FAE-D0CC231E9459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC279CF-3F82-4A79-9FAE-D0CC231E9459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC279CF-3F82-4A79-9FAE-D0CC231E9459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC279CF-3F82-4A79-9FAE-D0CC231E9459}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9571491A-F90B-493D-9EE0-750B2723EBA7}
+	EndGlobalSection
+EndGlobal
