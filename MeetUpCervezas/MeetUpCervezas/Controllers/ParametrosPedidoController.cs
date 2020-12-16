@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace MeetUpCervezas.Controllers
 {
+    [Authorize]
     public class ParametrosPedidoController : ApiController
     {
 
@@ -16,9 +17,9 @@ namespace MeetUpCervezas.Controllers
         ParametrosPedidosService parametrosPedidoService = new ParametrosPedidosService();
 
         /// <summary>
-        /// Obtener todos los Roles
+        /// Obtener todos los Parametros
         /// </summary>
-        /// <returns>Arreglo de Roles</returns>
+        /// <returns>Arreglo de parametros</returns>
         [HttpGet]
         public IEnumerable<ParametrosPedido> Get()
         {
@@ -26,10 +27,10 @@ namespace MeetUpCervezas.Controllers
         }
 
         /// <summary>
-        /// Obtener un rol filtrado por Id
+        /// Obtener un parametro filtrado por Id
         /// </summary>
         /// <param name="id"> id rol a obtener</param>
-        /// <returns>Rol</returns>
+        /// <returns>parametro</returns>
         [HttpGet]
         public ParametrosPedido Get(int id)
         {
@@ -37,10 +38,10 @@ namespace MeetUpCervezas.Controllers
         }
 
         /// <summary>
-        /// Inserta un Rol
+        /// Inserta un parametro
         /// </summary>
-        /// <param name="rol">rol a insertar</param>
-        /// <returns>Rol insertado</returns>
+        /// <param name="parametro">parametro a insertar</param>
+        /// <returns>Parametro insertado</returns>
         [HttpPost]
         public IHttpActionResult InsertParametrosPedido([FromBody] ParametrosPedido parametrosPedido)
         {
@@ -74,11 +75,11 @@ namespace MeetUpCervezas.Controllers
         }
 
         /// <summary>
-        /// Modificar Rol
+        /// Modificar Parametro
         /// </summary>
         /// <param name="Id"></param>
-        /// <param name="rol"> rol a modificar</param>
-        /// <returns>Rol Modificado</returns>
+        /// <param name="rol"> parametro a modificar</param>
+        /// <returns>Parametro Modificado</returns>
         [HttpPut]
         public IHttpActionResult UpdateParametrosPedido([FromBody] ParametrosPedido parametrosPedido)
         {
@@ -112,10 +113,10 @@ namespace MeetUpCervezas.Controllers
         }
 
         /// <summary>
-        /// Eliminar Rol por id
+        /// Eliminar Parametro por id
         /// </summary>
-        /// <param name="id"> id rol a eliminar</param>
-        /// <returns>Rol Eliminado</returns>
+        /// <param name="id"> id parametro a eliminar</param>
+        /// <returns>Parametro Eliminado</returns>
 
         [HttpDelete]
         public IHttpActionResult DeleteParametrosPedido(int id)

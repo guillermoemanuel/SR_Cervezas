@@ -54,6 +54,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="Mail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Meetup.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

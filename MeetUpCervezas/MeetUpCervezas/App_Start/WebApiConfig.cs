@@ -1,7 +1,10 @@
-﻿using System;
+﻿using MeetUpCervezas.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using static MeetUpCervezas.Controllers.LoginController;
+using static MeetUpCervezas.Controllers.UsuarioController;
 
 namespace MeetUpCervezas
 {
@@ -23,6 +26,9 @@ namespace MeetUpCervezas
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // AÑADE EL HANDLER DE VALIDACIÓN DE TOKENS
+            config.MessageHandlers.Add(new TokenValidationHandler());
         }
     }
 }

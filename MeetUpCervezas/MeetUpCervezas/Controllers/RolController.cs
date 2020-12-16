@@ -9,6 +9,7 @@ using MeetUpCervezas.Service;
 
 namespace MeetUpCervezas.Controllers
 {
+    [Authorize]
     public class RolController : ApiController
     {
         private MeetUpCervezasEntities dbContext = new MeetUpCervezasEntities();

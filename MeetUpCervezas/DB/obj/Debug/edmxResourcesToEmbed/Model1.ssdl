@@ -9,6 +9,15 @@
     <Property Name="IdMeetup" Type="int" />
     <Property Name="Estado" Type="int" />
   </EntityType>
+  <EntityType Name="Mail">
+    <Key>
+      <PropertyRef Name="mailFrom" />
+    </Key>
+    <Property Name="mailFrom" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
+    <Property Name="host" Type="varchar" MaxLength="100" />
+    <Property Name="port" Type="int" />
+  </EntityType>
   <EntityType Name="Meetup">
     <Key>
       <PropertyRef Name="Id" />
@@ -19,6 +28,7 @@
     <Property Name="Fecha" Type="datetime" />
     <Property Name="Hora" Type="datetime" />
     <Property Name="Estado" Type="int" />
+    <Property Name="Lugar" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="ParametrosPedido">
     <Key>
@@ -78,6 +88,7 @@
   </EntityType>
   <EntityContainer Name="MeetUpCervezasModelStoreContainer">
     <EntitySet Name="Asistentes" EntityType="Self.Asistentes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mail" EntityType="Self.Mail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Meetup" EntityType="Self.Meetup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ParametrosPedido" EntityType="Self.ParametrosPedido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />

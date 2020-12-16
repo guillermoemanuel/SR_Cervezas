@@ -14,6 +14,7 @@
     <EntitySetMapping Name="Meetup">
       <EntityTypeMapping TypeName="MeetUpCervezasModel.Meetup">
         <MappingFragment StoreEntitySet="Meetup">
+          <ScalarProperty Name="Lugar" ColumnName="Lugar" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Titulo" ColumnName="Titulo" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -81,6 +82,16 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Rol" ColumnName="Rol" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mail">
+      <EntityTypeMapping TypeName="MeetUpCervezasModel.Mail">
+        <MappingFragment StoreEntitySet="Mail">
+          <ScalarProperty Name="port" ColumnName="port" />
+          <ScalarProperty Name="host" ColumnName="host" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mailFrom" ColumnName="mailFrom" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

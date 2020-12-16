@@ -9,15 +9,16 @@ using System.Web.Http;
 
 namespace MeetUpCervezas.Controllers
 {
+    [Authorize]
     public class ProveedorController : ApiController
     {
         private MeetUpCervezasEntities dbContext = new MeetUpCervezasEntities();
         ProveedorService proveedorService = new ProveedorService();
 
         /// <summary>
-        /// Obtener todos los Roles
+        /// Obtener todos los Proveedor
         /// </summary>
-        /// <returns>Arreglo de Roles</returns>
+        /// <returns>Arreglo de Proveedor</returns>
         [HttpGet]
         public IEnumerable<Proveedor> Get()
         {
@@ -25,10 +26,10 @@ namespace MeetUpCervezas.Controllers
         }
 
         /// <summary>
-        /// Obtener un rol filtrado por Id
+        /// Obtener un Proveedor filtrado por Id
         /// </summary>
         /// <param name="id"> id rol a obtener</param>
-        /// <returns>Rol</returns>
+        /// <returns>Proveedor</returns>
         [HttpGet]
         public Proveedor Get(int id)
         {
@@ -36,10 +37,10 @@ namespace MeetUpCervezas.Controllers
         }
 
         /// <summary>
-        /// Inserta un Rol
+        /// Inserta un Porveedor
         /// </summary>
         /// <param name="rol">rol a insertar</param>
-        /// <returns>Rol insertado</returns>
+        /// <returns>Proveedor insertado</returns>
         [HttpPost]
         public IHttpActionResult InsertProveedor([FromBody] Proveedor proveedor)
         {
@@ -73,11 +74,11 @@ namespace MeetUpCervezas.Controllers
         }
 
         /// <summary>
-        /// Modificar Rol
+        /// Modificar Proveedor
         /// </summary>
         /// <param name="Id"></param>
-        /// <param name="rol"> rol a modificar</param>
-        /// <returns>Rol Modificado</returns>
+        /// <param name="rol"> Proveedor a modificar</param>
+        /// <returns>Proveedor Modificado</returns>
         [HttpPut]
         public IHttpActionResult UpdateProveedor([FromBody] Proveedor proveedor)
         {
@@ -111,10 +112,10 @@ namespace MeetUpCervezas.Controllers
         }
 
         /// <summary>
-        /// Eliminar Rol por id
+        /// Eliminar Proveedor por id
         /// </summary>
         /// <param name="id"> id rol a eliminar</param>
-        /// <returns>Rol Eliminado</returns>
+        /// <returns>Proveedor Eliminado</returns>
 
         [HttpDelete]
         public IHttpActionResult DeleteProveedor(int id)

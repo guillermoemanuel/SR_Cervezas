@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace MeetUpCervezas.Controllers
 {
+    [Authorize]
     public class MeetUpController : ApiController
     {
         private MeetUpCervezasEntities dbContext = new MeetUpCervezasEntities();
@@ -30,9 +31,9 @@ namespace MeetUpCervezas.Controllers
         /// <param name="id"> id rol a obtener</param>
         /// <returns>Rol</returns>
         [HttpGet]
-        public Meetup Get(int id)
+        public Meetup Get(int? id, DateTime? fecha, DateTime? hora, string titulo, int? estado)
         {
-            return meetUpService.Get(id);
+            return meetUpService.Get(id,fecha,hora,titulo,estado);
         }
 
         /// <summary>
@@ -41,6 +42,7 @@ namespace MeetUpCervezas.Controllers
         /// <param name="rol">rol a insertar</param>
         /// <returns>Rol insertado</returns>
         [HttpPost]
+        [Route("CrearMeetUp")]
         public IHttpActionResult InsertMeetup([FromBody] Meetup meetUp)
         {
             try
@@ -148,5 +150,110 @@ namespace MeetUpCervezas.Controllers
             }
 
         }
+
+        /// <summary>
+        /// Devuelve el listado de Usuarios asistentes a una MeetUp
+        /// </summary>
+        /// <param name="idMeetUp"> id de la meetUp</param>
+        /// <returns>List de Usuarios</returns>
+        [HttpGet]
+        [Route("Asistente")]
+        public List<Usuario> Get(int idMeetUp)
+        {
+            return meetUpService.GetAsistentes(idMeetUp);
+        }
+
+        /// <summary>
+        /// Devuelve un listado de MeetUp relacionadas a un usuario
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <returns>List MeetUp</returns>
+        [HttpGet]
+        [Route("MeetUpAsistente")]
+        public List<Meetup> GetMeetUp(int idUsuario)
+        {
+            return meetUpService.GetMeetUpsAsistentes(idUsuario);
+        }
+
+
+        /// <summary>
+        /// Asocia un usuario a una MeetUp permitiendo realizar invitaciones e inscripciones 
+        /// </summary>
+        /// <param name="idMeetUp"> id de la MeetUp</param>
+        /// <param name="idUsuario"> id del usuario></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("Asistente")]
+        public IHttpActionResult InvitedAsistente(int idMeetUp, int idUsuario)
+        {
+            try
+            {
+
+                if (ModelState.IsValid)
+                {
+                    if (meetUpService.InvitedAsistente(idMeetUp, idUsuario))
+                    {
+                        ModelState.AddModelError("", "EL usuario ya fue invitado");
+
+                    }
+
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    return Ok();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Permite modificar el estado de un usuario con respecto a una MeetUp permitiendo de esta forma poder realizar check-in
+        /// </summary>
+        /// <param name="idMeetUp"></param>
+        /// <param name="idUsuario"></param>
+        /// <param name="estado"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("Asistente")]
+        public IHttpActionResult UpdateAsistenteEstado(int idMeetUp, int idUsuario, int estado)
+        {
+            try
+            {
+
+                if (ModelState.IsValid)
+                {
+                    if (!meetUpService.UpdateAsistenteEstado(idMeetUp,idUsuario,estado))
+                    {
+                        ModelState.AddModelError("", "No se encontró Asistente para actualizar");
+
+                    }
+
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    return Ok();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

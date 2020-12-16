@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MeetUpCervezasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MeetUpCervezasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asistentes">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,6 +13,15 @@
           <Property Name="IdUsuario" Type="int" />
           <Property Name="IdMeetup" Type="int" />
           <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="mailFrom" />
+          </Key>
+          <Property Name="mailFrom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="host" Type="varchar" MaxLength="100" />
+          <Property Name="port" Type="int" />
         </EntityType>
         <EntityType Name="Meetup">
           <Key>
@@ -24,6 +33,7 @@
           <Property Name="Fecha" Type="datetime" />
           <Property Name="Hora" Type="datetime" />
           <Property Name="Estado" Type="int" />
+          <Property Name="Lugar" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="ParametrosPedido">
           <Key>
@@ -83,6 +93,7 @@
         </EntityType>
         <EntityContainer Name="MeetUpCervezasModelStoreContainer">
           <EntitySet Name="Asistentes" EntityType="Self.Asistentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mail" EntityType="Self.Mail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Meetup" EntityType="Self.Meetup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ParametrosPedido" EntityType="Self.ParametrosPedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
@@ -90,8 +101,7 @@
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MeetUpCervezasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -114,6 +124,7 @@
           <Property Name="Fecha" Type="DateTime" Precision="3" />
           <Property Name="Hora" Type="DateTime" Precision="3" />
           <Property Name="Estado" Type="Int32" />
+          <Property Name="Lugar" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ParametrosPedido">
           <Key>
@@ -179,7 +190,17 @@
           <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
           <EntitySet Name="Rol" EntityType="Self.Rol" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Mail" EntityType="MeetUpCervezasModel.Mail" />
         </EntityContainer>
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="mailFrom" />
+          </Key>
+          <Property Name="mailFrom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="host" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="port" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -199,6 +220,7 @@
           <EntitySetMapping Name="Meetup">
             <EntityTypeMapping TypeName="MeetUpCervezasModel.Meetup">
               <MappingFragment StoreEntitySet="Meetup">
+                <ScalarProperty Name="Lugar" ColumnName="Lugar" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Titulo" ColumnName="Titulo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -266,6 +288,16 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mail">
+            <EntityTypeMapping TypeName="MeetUpCervezasModel.Mail">
+              <MappingFragment StoreEntitySet="Mail">
+                <ScalarProperty Name="port" ColumnName="port" />
+                <ScalarProperty Name="host" ColumnName="host" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mailFrom" ColumnName="mailFrom" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

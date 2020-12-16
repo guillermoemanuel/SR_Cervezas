@@ -20,5 +20,6 @@ namespace DB
         public Nullable<System.DateTime> Fecha { get; set; }
         public Nullable<System.DateTime> Hora { get; set; }
         public Nullable<int> Estado { get; set; }
+        public string Lugar { get; set; }
     }
 }

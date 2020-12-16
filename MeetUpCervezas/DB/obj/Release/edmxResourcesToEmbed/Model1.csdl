@@ -19,6 +19,7 @@
     <Property Name="Fecha" Type="DateTime" Precision="3" />
     <Property Name="Hora" Type="DateTime" Precision="3" />
     <Property Name="Estado" Type="Int32" />
+    <Property Name="Lugar" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="ParametrosPedido">
     <Key>
@@ -84,5 +85,15 @@
     <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
     <EntitySet Name="Rol" EntityType="Self.Rol" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="Mail" EntityType="MeetUpCervezasModel.Mail" />
   </EntityContainer>
+  <EntityType Name="Mail">
+    <Key>
+      <PropertyRef Name="mailFrom" />
+    </Key>
+    <Property Name="mailFrom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="host" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="port" Type="Int32" />
+  </EntityType>
 </Schema>

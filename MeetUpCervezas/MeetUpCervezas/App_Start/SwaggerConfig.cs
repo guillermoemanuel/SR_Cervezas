@@ -19,11 +19,16 @@ namespace MeetUpCervezas
                         
                         c.SingleApiVersion("v1", "MeetUpCervezas");
 
-                        
+                        c.ApiKey("Token")
+            .Description("Filling bearer token here")
+            .Name("Authorization")
+            .In("header");
+
+
                     })
                 .EnableSwaggerUi(c =>
                     {
-                       
+                        c.EnableApiKeySupport("Authorization", "header");
                     });
         }
     }

@@ -11,12 +11,10 @@ namespace DB
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Rol
     {
         public int Id { get; set; }
-        [Required (ErrorMessage = "El campo nombre es obligatorio")]
         public string Nombre { get; set; }
         public Nullable<int> Estado { get; set; }
     }

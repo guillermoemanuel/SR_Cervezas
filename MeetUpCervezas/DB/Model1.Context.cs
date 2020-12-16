@@ -32,5 +32,6 @@ namespace DB
         public virtual DbSet<Proveedor> Proveedor { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Mail> Mail { get; set; }
     }
 }
